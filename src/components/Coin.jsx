@@ -1,9 +1,10 @@
 import React from 'react'
 import { TrendingDown, TrendingUp } from '../icons/icons';
+import { Link } from 'react-router-dom';
 
 const Coin = ({ coin }) => {
     return (
-        <>
+        <Link to={`/coin/${coin.id}`}>
             <div className='grid grid-cols-3 sm:grid-cols-4 font-light p-2 rounded border-gray-200 border-b hover:bg-gray-400 cursor-pointer items-center'>
                 <div className='flex items-center gap-1 w-full'>
                     <img src={coin.image} alt="" className='w-6' />
@@ -17,7 +18,7 @@ const Coin = ({ coin }) => {
                     <span>${coin.market_cap}</span>
                 </div>
             </div>
-        </>
+        </Link>
     )
 }
 
