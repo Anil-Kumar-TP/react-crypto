@@ -7,7 +7,7 @@ const CoinDetail = () => {
     const { response } = useAxios(`coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=true&sparkline=false`);
 
     if (!response) {
-        return <div>Loading...</div>
+        return <div className='font-semibold text-center'>Loading...</div>
     }
 
     return (
