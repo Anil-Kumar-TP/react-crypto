@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment';
+import Skeleton from './Skeleton';
 
 ChartJS.register(
     CategoryScale,
@@ -32,7 +33,11 @@ const HistoryChart = () => {
     const { response } = useAxios(`coins/${id}/market_chart?vs_currency=usd&days=7`);
     
     if (!response) {
-        return <div className='font-semibold text-center'>Loading...</div>
+        return (
+            <div className='wrapper-container mt-8'>
+                <Skeleton className='h-72 w-full mb-10' />
+            </div>
+        )
     }
 
     const coinChartData = response.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));

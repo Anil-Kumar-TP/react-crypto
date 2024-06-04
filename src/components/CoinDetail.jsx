@@ -1,13 +1,19 @@
 import React from 'react'
 import useAxios from '../hooks/useAxios';
 import { useParams } from 'react-router-dom';
+import Skeleton from './Skeleton';
 
 const CoinDetail = () => {
     const { id } = useParams();
     const { response } = useAxios(`coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=true&sparkline=false`);
 
     if (!response) {
-        return <div className='font-semibold text-center'>Loading...</div>
+        return (
+            <div className='wrapper-container mt-8'>
+                <Skeleton className='h-8 w-32 mb-4' />
+                <Skeleton className='h-72 w-full mb-10' />
+            </div>
+        )
     }
 
     return (
