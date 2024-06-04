@@ -3,14 +3,14 @@ import CryptoHome from "./pages/CryptoHome"
 import CryptoDetail from "./pages/CryptoDetail"
 import Navbar from "./components/Navbar"
 
-function App() {
-  
+function App () {
+
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<CryptoHome/>} />
-        <Route path="/coin/:id" element={<CryptoDetail/>} />
+        <Route path="/" element={<CryptoHome />} />
+        <Route path="/coin/:id" element={<CryptoDetail />} />
       </Routes>
     </BrowserRouter>
   )
